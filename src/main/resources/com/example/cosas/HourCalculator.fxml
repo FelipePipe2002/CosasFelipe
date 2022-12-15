@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cosas.HourCalculatorController">
+   <children>
+      <Pane layoutX="10.0" layoutY="31.0" prefHeight="360.0" prefWidth="580.0" styleClass="menupanel" stylesheets="@menu.css">
+         <children>
+            <ListView fx:id="ListTimes" layoutX="15.0" layoutY="15.0" prefHeight="330.0" prefWidth="222.0" />
+            <Button fx:id="RemoverHora" layoutX="245.0" layoutY="15.0" mnemonicParsing="false" onAction="#RemoveHours" text="Remover" />
+            <Label layoutX="245.0" layoutY="204.0" prefHeight="17.0" prefWidth="60.0" text="Velocidad" />
+            <ToggleButton fx:id="ButtonV3" layoutX="245.0" layoutY="245.0" mnemonicParsing="false" onAction="#VelocityChanger" prefWidth="60.0" text="1.75" />
+            <ToggleButton fx:id="ButtonV2" layoutX="245.0" layoutY="270.0" mnemonicParsing="false" onAction="#VelocityChanger" prefWidth="60.0" text="1.5" />
+            <ToggleButton fx:id="ButtonV1" layoutX="245.0" layoutY="295.0" mnemonicParsing="false" onAction="#VelocityChanger" prefWidth="60.0" text="1.25" />
+            <ToggleButton fx:id="ButtonV0" layoutX="245.0" layoutY="320.0" mnemonicParsing="false" onAction="#VelocityChanger" prefWidth="60.0" text="1" />
+            <ToggleButton fx:id="ButtonV4" layoutX="245.0" layoutY="221.0" mnemonicParsing="false" onAction="#VelocityChanger" prefWidth="60.0" text="2" />
+            <Label layoutX="378.0" layoutY="19.0" text="Cargar Hora" />
+            <TextField fx:id="TextFieldHora" layoutX="378.0" layoutY="40.0" onAction="#AddHours" onDragEntered="#AddHours" promptText="HH:MM:SS" />
+            <Button fx:id="ButtonCargarHora" layoutX="475.0" layoutY="74.0" mnemonicParsing="false" onAction="#AddHours" text="Cargar" />
+            <Label fx:id="LaberTotalTime" layoutX="379.0" layoutY="269.0" text="0:00:00">
+               <font>
+                  <Font name="Arial" size="44.0" />
+               </font>
+            </Label>
+            <Label fx:id="LabelError" alignment="CENTER" contentDisplay="CENTER" layoutX="301.0" layoutY="78.0" prefHeight="17.0" prefWidth="166.0" text="Error al cargar la hora" visible="false" />
+         </children></Pane>
+      <Pane fx:id="PaneM" prefHeight="32.0" prefWidth="600.0" />
+      <Label layoutX="14.0" layoutY="4.0" text="Hour Calculator" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="ButtonMinimize1" ellipsisString="&lt;-" layoutX="490.0" layoutY="3.0" maxHeight="24.0" maxWidth="24.0" minHeight="24.0" minWidth="24.0" mnemonicParsing="false" onAction="#SwitchToMain" prefHeight="24.0" prefWidth="24.0" styleClass="buttonCM" text="&lt;-">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font></Button>
+      <Button fx:id="ButtonMinimize" ellipsisString="--" layoutX="525.0" layoutY="3.0" maxHeight="24.0" maxWidth="24.0" minHeight="24.0" minWidth="24.0" mnemonicParsing="false" onAction="#Minimize" prefHeight="24.0" prefWidth="24.0" styleClass="buttonCM" text="--">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font></Button>
+      <Button fx:id="ButtonClose" contentDisplay="CENTER" layoutX="560.0" layoutY="3.0" maxHeight="24.0" maxWidth="24.0" minHeight="24.0" minWidth="24.0" mnemonicParsing="false" onAction="#Close" prefHeight="24.0" prefWidth="24.0" styleClass="buttonCM" stylesheets="@menu.css" text="X">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
