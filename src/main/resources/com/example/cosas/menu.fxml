@@ -12,7 +12,7 @@
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font></Button>
-            <Button layoutX="125.0" layoutY="10.0" mnemonicParsing="false" onAction="#SwitchToPlanEstudio" prefHeight="75.0" prefWidth="100.0" styleClass="panelOption" text="Plan de Estudio Interactivo" textAlignment="CENTER" wrapText="true">
+            <Button layoutX="125.0" layoutY="10.0" mnemonicParsing="false" onAction="#SwitchToPlanEstudio" prefHeight="75.0" prefWidth="100.0" styleClass="panelOption" text="Algo" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font></Button>

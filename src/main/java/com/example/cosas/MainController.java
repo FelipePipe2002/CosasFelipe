@@ -57,14 +57,14 @@ public class MainController {
     }
 
     public void SwitchToPlanEstudio(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("PlanDeEstudio.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Algo.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(loader.load());
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.setY(stage.getScene().getWindow().getY()-150);
-        ((PlanDeEstudioController)loader.getController()).init(stage);
+        stage.setY(stage.getScene().getWindow().getY());
+        ((AlgoController)loader.getController()).init(stage);
         stage.show();
 
     }
