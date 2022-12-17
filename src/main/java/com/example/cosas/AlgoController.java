@@ -16,6 +16,9 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
+
+import com.example.cosas.Clases.Conexiones;
 
 
 public class AlgoController {
@@ -26,10 +29,10 @@ public class AlgoController {
     private Button ButtonClose,ButtonMinimize;
     @FXML
     private Label LabelConexion;
-    private double x,y,p1x,p1y;
-    private boolean p1;
-    private Node link1;
-    
+    private double x,y;
+    private Node nodo1,nodo2;
+    private ArrayList<Conexiones> conexiones;
+
     public void init(Stage stage){
         PaneM.setOnMousePressed(mouseEvent -> {
             x = mouseEvent.getSceneX();
@@ -39,7 +42,11 @@ public class AlgoController {
             stage.setX(mouseEvent.getScreenX()-x);
             stage.setY(mouseEvent.getScreenY()-y);
         });
-        p1=false;
+        PanelPrincipal.setOnMouseClicked(event -> {
+            administrarnodos(event);
+        });
+        nodo1=null;nodo2=null;
+        conexiones = new ArrayList<>();
     }
 
     public void SwitchToMain(ActionEvent event) throws IOException {
@@ -67,12 +74,18 @@ public class AlgoController {
         boolean encontrado = false;
         for (Node node : PanelPrincipal.getChildren()){
             if (node.contains(event.getX(),event.getY())){
-                link1 = node;
-                encontrado=true;
-                if(event.getButton() == MouseButton.SECONDARY){
-                    PanelPrincipal.getChildren().remove(node);
-                }
-                break;
+                    if(nodo1==null)
+                        nodo1 = node;
+                    else 
+                        nodo2 = node;
+                    encontrado=true;
+                    if(event.getButton() == MouseButton.SECONDARY){
+                        Circle aux = new Circle();
+                        if (node.getClass() == aux.getClass())
+                            PanelPrincipal.getChildren().remove(node);
+                    }
+                    
+                    break;
             }
         }   
         if(event.getButton() == MouseButton.PRIMARY){
@@ -80,24 +93,28 @@ public class AlgoController {
                 Circle circle = new Circle(event.getX(), event.getY(), 15, Color.ORANGE);
                 PanelPrincipal.getChildren().add(circle);
             } else {
-                Bounds lugar = link1.localToScene(link1.getBoundsInLocal());
-                if (!p1){
-                    p1x=lugar.getMinX()+5;
-                    p1y=lugar.getMinY()-15;
-                    p1=true;
-                    LabelConexion.setVisible(true);
+                Circle circle = new Circle();
+                if (nodo1.getClass() == circle.getClass()){
+                    if (nodo2==null){
+                        LabelConexion.setVisible(true);
+                    } else if (nodo2 != null){
+                        if (nodo2.getClass() == circle.getClass()){
+                            Conexiones aux = new Conexiones(nodo1, nodo2, "a", PanelPrincipal);
+                            conexiones.add(aux);
+                            nodo1=null;
+                            nodo2=null;
+                            LabelConexion.setVisible(false);
+                        } else {
+                            nodo2=null;
+                        }
+                    }
                 } else {
-                    Line conexion = new Line(p1x, p1y,lugar.getMinX()+5,lugar.getMinY()-15);
-                    PanelPrincipal.getChildren().add(conexion);
-                    p1=false;
-                    link1=null;
-                    LabelConexion.setVisible(false);
+                    nodo1=null;
                 }
             }
         } else {
-            if (encontrado)
-                PanelPrincipal.getChildren().remove(link1);
-            p1=false;
+            nodo1=null;
+            nodo2=null;
             LabelConexion.setVisible(false);
         }
     }
