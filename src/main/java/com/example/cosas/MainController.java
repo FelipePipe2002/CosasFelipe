@@ -11,7 +11,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-
 public class MainController {
     @FXML
     private Button ButtonClose,ButtonMinimize;
@@ -56,7 +55,7 @@ public class MainController {
 
     }
 
-    public void SwitchToPlanEstudio(ActionEvent event) throws IOException {
+    public void SwitchToAutomatas(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Algo.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(loader.load());
@@ -64,7 +63,7 @@ public class MainController {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setY(stage.getScene().getWindow().getY());
-        ((AlgoController)loader.getController()).init(stage);
+        ((AutomatasController)loader.getController()).init(stage);
         stage.show();
 
     }

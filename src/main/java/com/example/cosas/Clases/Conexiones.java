@@ -3,7 +3,6 @@ package com.example.cosas.Clases;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
-
 import java.util.ArrayList;
 
 public class Conexiones {

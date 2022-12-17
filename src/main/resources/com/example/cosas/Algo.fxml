@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cosas.AlgoController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cosas.AutomatasController">
    <children>
       <Pane fx:id="PanelPrincipal" layoutX="10.0" layoutY="31.0" onMouseClicked="#administrarnodos" prefHeight="360.0" prefWidth="580.0" styleClass="menupanel" stylesheets="@menu.css">
          <children>

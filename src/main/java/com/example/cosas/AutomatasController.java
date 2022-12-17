@@ -3,7 +3,6 @@ package com.example.cosas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,15 +12,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import com.example.cosas.Clases.Conexiones;
 
-
-public class AlgoController {
+public class AutomatasController {
 
     @FXML
     private Pane PaneM,PanelPrincipal;
