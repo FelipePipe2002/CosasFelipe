@@ -56,7 +56,7 @@ public class MainController {
     }
 
     public void SwitchToAutomatas(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Algo.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Automatas.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(loader.load());
         scene.setFill(Color.TRANSPARENT);
