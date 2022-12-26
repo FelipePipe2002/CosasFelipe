@@ -13,6 +13,8 @@
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Label>
+            <Label fx:id="LabelLetra" layoutX="501.0" layoutY="14.0" text="Cargar Letra" visible="false" />
+            <TextField fx:id="FieldCargar" layoutX="501.0" layoutY="31.0" onAction="#cargarletra" prefHeight="25.0" prefWidth="65.0" visible="false" />
          </children></Pane>
       <Pane fx:id="PaneM" prefHeight="32.0" prefWidth="600.0" />
       <Label layoutX="14.0" layoutY="4.0" text="Algo" textFill="WHITE">

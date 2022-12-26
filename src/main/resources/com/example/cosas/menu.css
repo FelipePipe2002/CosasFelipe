@@ -8,46 +8,13 @@
     -fx-background-radius: 18;
 }
 
-.normal {
-    -fx-background-color: #3B9FB1;
-    -fx-background-radius: 18;
-}
-
-.dada{
-    -fx-background-color: #778d5a;
-    -fx-background-radius: 18;
-}
-
-.final{
-    -fx-background-color: #3c5b2d;
-    -fx-background-radius: 18;
-}
-
-.cursando{
-    -fx-background-color: #ffc000;
-    -fx-background-radius: 18;
-}
-
-
 .panelOption{
     -fx-background-color: #a44110;
     -fx-background-radius: 18;
     -fx-opacity: 0.9;
 }
-.panelOption:hover{
-    -fx-opacity: 1;
-}
 
-.materia{
-    -fx-background-color: #3B9FB1;
-    -fx-background-radius: 18;
-    -fx-opacity: 0.9;
-    -fx-border-color: #000000;
-    -fx-border-radius: 18;
-    -fx-border-width: 2;
-    -fx-border-insets: -1;
-}
-.materia:hover{
+.panelOption:hover{
     -fx-opacity: 1;
 }
 

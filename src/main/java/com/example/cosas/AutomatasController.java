@@ -7,15 +7,17 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
-import com.example.cosas.Clases.Conexiones;
+import com.example.cosas.Clases.Conexion;
 
 public class AutomatasController {
 
@@ -24,10 +26,13 @@ public class AutomatasController {
     @FXML
     private Button ButtonClose,ButtonMinimize;
     @FXML
-    private Label LabelConexion;
+    private Label LabelConexion,LabelLetra;
+    @FXML
+    private TextField FieldCargar;
     private double x,y;
     private Node nodo1,nodo2;
-    private ArrayList<Conexiones> conexiones;
+    private ArrayList<Conexion> conexion;
+    private int i;
 
     public void init(Stage stage){
         PaneM.setOnMousePressed(mouseEvent -> {
@@ -42,7 +47,8 @@ public class AutomatasController {
             administrarnodos(event);
         });
         nodo1=null;nodo2=null;
-        conexiones = new ArrayList<>();
+        conexion = new ArrayList<>();
+        i=0;
     }
 
     public void SwitchToMain(ActionEvent event) throws IOException {
@@ -65,7 +71,20 @@ public class AutomatasController {
         Stage stage = (Stage) ButtonMinimize.getScene().getWindow();
         stage.setIconified(true);
     }
+    public void comprobar(String cadena){
+        
+    }
+    public void cargarletra(){
+        String letras = FieldCargar.getText();
+        if (letras.length()>1){
 
+        }else {
+            if(letras.length()==1 && letras.matches("[a-z]")){
+                Conexion aux = new Conexion(nodo1, nodo2, "a", PanelPrincipal);
+                conexion.add(aux);
+            }
+        }
+    }
     public void administrarnodos(MouseEvent event){
         boolean encontrado = false;
         for (Node node : PanelPrincipal.getChildren()){
@@ -80,14 +99,17 @@ public class AutomatasController {
                         if (node.getClass() == aux.getClass())
                             PanelPrincipal.getChildren().remove(node);
                     }
-                    
                     break;
             }
         }   
         if(event.getButton() == MouseButton.PRIMARY){
             if (!encontrado){
                 Circle circle = new Circle(event.getX(), event.getY(), 15, Color.ORANGE);
+                circle.setId("N" + String.valueOf(i));
+                circle.setStroke(Color.BLACK);
+                circle.setStrokeWidth(2);
                 PanelPrincipal.getChildren().add(circle);
+                i++;
             } else {
                 Circle circle = new Circle();
                 if (nodo1.getClass() == circle.getClass()){
@@ -95,8 +117,21 @@ public class AutomatasController {
                         LabelConexion.setVisible(true);
                     } else if (nodo2 != null){
                         if (nodo2.getClass() == circle.getClass()){
-                            Conexiones aux = new Conexiones(nodo1, nodo2, "a", PanelPrincipal);
-                            conexiones.add(aux);
+                            Boolean esta = false;
+                            for (Conexion i : conexion) {
+                                if(i.equal(nodo1, nodo2)){
+                                    esta=true;
+                                    i.modifica("b");
+                                    break;
+                                }
+                            }
+                            if(!esta){
+                                LabelLetra.setVisible(true);
+                                FieldCargar.setVisible(true);
+                                //buscar una forma de que espere hasta que el usuario cargue una letra
+                                LabelLetra.setVisible(false);
+                                FieldCargar.setVisible(false);
+                            }
                             nodo1=null;
                             nodo2=null;
                             LabelConexion.setVisible(false);
